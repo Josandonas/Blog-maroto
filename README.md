@@ -24,3 +24,5 @@ Passo 2: composer create-project --prefer-dist laravel/laravel blog
  Digitar na url: http://localhost:8000
  
  
+ Blog de vendas de camisetas do Boku no Hero Academy onde todos podem interagir.
+ 
