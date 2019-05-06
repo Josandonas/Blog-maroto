@@ -11,10 +11,10 @@
             
         <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
           <li class="nav-item">
-            <a class="nav-link " href="about.html">Loja</a>
+            <a class="nav-link " href="about.html">Loja<i class="fas fa-shopping-basket"></i></a>
           </li>          
           <li class="nav-item">
-            <a class="nav-link " href="about.html">Sobre </a><i class="far fa-lightbulb"></i> 
+            <a class="nav-link " href="about.html">Sobre<i class="far fa-lightbulb"></i>  </a>
           </li>
 
   </nav>
