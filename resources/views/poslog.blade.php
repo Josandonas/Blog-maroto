@@ -11,10 +11,14 @@
             
         <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
           <li class="nav-item">
-            <a class="nav-link " href="about.html">Loja<i class="fas fa-shopping-basket"></i></a>
-          </li>          
+            <a class="nav-link "><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} </a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link " href="about.html">Sobre<i class="far fa-lightbulb"></i>  </a>
+            <a class="nav-link " href="about.html"><i class="fas fa-shopping-basket"></i>Loja</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="about.html"><i class="far fa-lightbulb"></i> Sobre </a>
           </li>
 
   </nav>

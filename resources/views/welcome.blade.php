@@ -24,9 +24,7 @@
           <li class="nav-item">
             <a class="nav-link " href="{{ route('login') }}">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link "> <?php  $id = Auth::id();?> </a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link " href="{{ route('register') }}">Registre-se</a>
           </li>
