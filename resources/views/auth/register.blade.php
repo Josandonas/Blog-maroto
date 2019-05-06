@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
- <header class="masthead" style="background-image:url('img/new.png')">
+ <header class="masthead" style="background-image:url({{ asset('img/new.png') }})">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
