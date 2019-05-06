@@ -19,7 +19,7 @@
 
   </nav>
 
-  <header class="masthead" style="background-image: url('img/new.png')">
+  <header class="masthead" style="background-image: url({{ asset('img/old.jpg') }})">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
