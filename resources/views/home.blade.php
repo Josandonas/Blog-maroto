@@ -17,10 +17,6 @@
 
                     Você está Logado! <i class="far fa-smile-beam fa-spin"></i> 
                     <h3> Bem Vindo!! {{ Auth::user()->name }}</h3>
-                    <ul>
-                        <li>Clique no botão verde caso desejar explorar nosso blog voltado para comunidade do nosso amado Boku No Hero Academy</li>
-                        <li>Caso preferir saia apertando o botão de "Sair"</li>
-                    </ul>
                 </div>
                 <div class="card-footer text-muted">
                     <a href="home/poslog"><button  type="button" class="btn btn-success btn-lg">Explorar</button></a>
