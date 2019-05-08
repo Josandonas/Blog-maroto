@@ -1,9 +1,5 @@
 @extends('layouts.app')
-
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <body>
-
+@section('content')
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
 
@@ -177,17 +173,4 @@
       </div>
     </div>
   </footer>
-
-
-
-
-       <!-- Bootstrap core JavaScript -->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-      <!-- Custom scripts for this template -->
-      <script src="js/clean-blog.min.js"></script>
-
-    </body>
-
-</html>
+@endsection

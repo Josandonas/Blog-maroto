@@ -1,20 +1,11 @@
 @extends('layouts.app')
-
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>BNHA</title>  
-    </head>
-    <body>
-
-                  <!-- Navigation -->
+@section('content')
+<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-    
+
       <a class="navbar-brand justify-content-between" >BNHA</a>
-      
-      
+
+
         <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
           <li class="nav-item">
             <a class="nav-link " href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>Login</a>
@@ -44,7 +35,7 @@
   </header>
 
   <!-- Main Content -->
- 
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -73,17 +64,6 @@
       </div>
     </div>
   </footer>
+  @endsection
 
 
-    
-
-       <!-- Bootstrap core JavaScript -->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-      <!-- Custom scripts for this template -->
-      <script src="js/clean-blog.min.js"></script>
-      
-    </body>
-
-</html>
