@@ -1,31 +1,37 @@
 @extends('layouts.app')
 @section('content')
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="post.html">Sample Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+ <!-- Navigation -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+
+    <a class="navbar-brand justify-content-between" > <i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a>
+
+      <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
+
+        <li class="nav-item">
+            <a class="nav-link " href='poslog'><i class="fas fa-home"></i>Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href='about'><i class="fas fa-shopping-basket"></i>Loja</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href='contato'><i class="fas fa-phone-square"></i> Contato </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href='about'><i class="far fa-lightbulb"></i> Sobre </a>
+        </li>
+
+        <li>
+          <a class="nav-item" href="{{ url('/logout') }}"  onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+              <i class="fas fa-sign-out-alt"></i>Sair
+          </a>
+      </li>
+
+</nav>
+
 
   <!-- Page Header -->
   <header class="masthead" style="background-image: url('img/contact-bg.jpg')">

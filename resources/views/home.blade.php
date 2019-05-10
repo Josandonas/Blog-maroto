@@ -19,9 +19,9 @@
                     <h3> Bem Vindo!! {{ Auth::user()->name }}</h3>
                 </div>
                 <div class="card-footer text-muted" align="center">
-                  <a href="home/poslog"><button  type="button" class="btn btn-success btn-lg">Continuar para o Fórum</button></a>
+                  <a href='poslog'><button  type="button" class="btn btn-success btn-lg">Continuar para o Blog</button></a>
                 </div>
-                <div align="center"> 
+                <div align="center">
                   <a href="{{ url('/logout') }}"  onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();"><button type="button" class="btn btn-danger btn-lg ">Sair <i class="fas fa-skull-crossbones "></i></button></a>
                 </div>
