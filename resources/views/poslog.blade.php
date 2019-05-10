@@ -14,8 +14,15 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="about.html"><i class="far fa-lightbulb"></i> Sobre </a>
+            <a class="nav-link " href="{{ url('contato') }}"><i class="far fa-lightbulb"></i> Sobre </a>
           </li>
+
+          <li>
+            <a class="nav-item" href="{{ url('/logout') }}"  onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i>Sair
+            </a>
+        </li>
 
   </nav>
 

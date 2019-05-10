@@ -20,7 +20,8 @@
                 </div>
                 <div class="card-footer text-muted">
                     <a href="home/poslog"><button  type="button" class="btn btn-success btn-lg">Explorar<i class="fas fa-spinner fa-pulse"></i></button></a>
-                    <button type="button" class="btn btn-danger btn-lg">Sair <i class="fas fa-skull-crossbones "></i></button>
+                    <a href="{{ url('/logout') }}"  onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();"><button type="button" class="btn btn-danger btn-lg">Sair <i class="fas fa-skull-crossbones "></i></button></a>
                 </div>
             </div>
         </div>
