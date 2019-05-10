@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<header class="masthead" style="background-image:url({{ asset('img/year.jpg') }})">
+<header class="masthead" style="background-image:url({{ asset('img/contimg.png') }})">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -18,10 +18,12 @@
                     Você está Logado! <i class="far fa-smile-beam fa-spin"></i>
                     <h3> Bem Vindo!! {{ Auth::user()->name }}</h3>
                 </div>
-                <div class="card-footer text-muted">
-                    <a href="home/poslog"><button  type="button" class="btn btn-success btn-lg">Explorar<i class="fas fa-spinner fa-pulse"></i></button></a>
-                    <a href="{{ url('/logout') }}"  onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"><button type="button" class="btn btn-danger btn-lg">Sair <i class="fas fa-skull-crossbones "></i></button></a>
+                <div class="card-footer text-muted" align="center">
+                  <a href="home/poslog"><button  type="button" class="btn btn-success btn-lg">Continuar para o Fórum</button></a>
+                </div>
+                <div align="center"> 
+                  <a href="{{ url('/logout') }}"  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();"><button type="button" class="btn btn-danger btn-lg ">Sair <i class="fas fa-skull-crossbones "></i></button></a>
                 </div>
             </div>
         </div>
