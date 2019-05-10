@@ -12,19 +12,13 @@
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
-
-Route::get('/poslog', function () {
-    return view('poslog');
 });
 
-Route::get('/contato', function () {
-    return view('contato');
-});
+Route::get('/poslog', 'PosLogController@index')->name('poslog');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/contato', 'ContatoController@index')->name('contato');
+
+Route::get('/about', 'AboutController@index')->name('about');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
