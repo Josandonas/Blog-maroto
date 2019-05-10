@@ -12,14 +12,18 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
-Route::get('/home/poslog', function () {
+Route::get('/poslog', function () {
     return view('poslog');
 });
 
-Route::get('/poslog/contato', function () {
+Route::get('/contato', function () {
     return view('contato');
+});
+
+Route::get('/about', function () {
+    return view('about');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
