@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +18,10 @@ Route::get('/home/poslog', function () {
     return view('poslog');
 });
 
-
+Route::get('/poslog/contato', function () {
+    return view('contato');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
