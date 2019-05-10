@@ -3,11 +3,11 @@
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
 
-      <a class="navbar-brand justify-content-between" >BNH</a>
+      <a class="navbar-brand justify-content-between" >Olá {{ Auth::user()->name }}</a>
 
         <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
           <li class="nav-item">
-            <a class="nav-link "><i class="fas fa-user-circle"></i> <?php $user = Auth::user()->name;  ?> {{ $user }} </a>
+            <a class="nav-link "><i class="fas fa-user-circle"></i> <?php $user = Auth::user()->name;  ?> Perfil </a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="about.html"><i class="fas fa-shopping-basket"></i>Loja</a>
@@ -47,9 +47,9 @@
       <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" align = "center">
                 <a  href="https://www.subway.com/pt-BR">
-                    <img src="{{ asset('img/anu2.png') }}" class="d-block w-100" alt="...">
+                    <img src="{{ asset('img/anu2.png') }}" class="d-block w-50" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                     <!-- aqui onde deve ser realizado o texto caso haja necessidade-->
                     </div>
@@ -57,18 +57,18 @@
             </div>
 
 
-        <div class="carousel-item">
+        <div class="carousel-item" align = "center">
             <a href="https://www.samsung.com/br/pc/notebook-expert-x50-np350xaa-xf3br/">
-                <img src="{{ asset('img/anu4.png') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('img/anu4.png') }}" class="d-block w-50" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                 <!-- aqui onde deve ser realizado o texto caso haja necessidade-->
                 </div>
             </a>
         </div>
 
-      <div class="carousel-item">
+      <div class="carousel-item" align = "center">
         <a href="https://www.samsung.com/br/smartphones/galalxy-m20-m205/SM-M205MDAKZTO/">
-            <img src="{{ asset('img/anu3.png') }}" class="d-block w-100" alt="...">
+            <img src="{{ asset('img/anu3.png') }}" class="d-block w-50" alt="...">
             <div class="carousel-caption d-none d-md-block">
             <!-- aqui onde deve ser realizado o texto caso haja necessidade-->
             </div>
