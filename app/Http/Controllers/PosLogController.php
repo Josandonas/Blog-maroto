@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PosLogController extends Controller
-{
+class PosLogController extends Controller{
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +19,7 @@ class PosLogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         //
     }
 
@@ -31,9 +29,16 @@ class PosLogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $postagem= new Postagem();
+        $postagem->id=$request->input('id');
+        $postagem->titulo=$request->input('titulo');
+        $postagem->descricao=$request->input('descricao');
+        $postagem->data=$request->input('data');
+        $postagem->hora=$request->input('hora');
+        $postagem->autor=$request->input('autor');
+        $postagem->save();
+        return redirect('/poslog');
     }
 
     /**
@@ -53,9 +58,9 @@ class PosLogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $postagem=Postagem::find($id);
+        return view('alterarpost',compact('postagem'));
     }
 
     /**
@@ -65,9 +70,17 @@ class PosLogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $postagem = Postagem::find($id);
+        $postagem->id=$request->input('id');
+        $postagem->titulo=$request->input('titulo');
+        $postagem->descricao=$request->input('descricao');
+        $postagem->data=$request->input('data');
+        $postagem->hora=$request->input('hora');
+        $postagem->autor=$request->input('autor');
+        $postagem->save();
+        return redirect('poslog');
+
     }
 
     /**
@@ -76,8 +89,14 @@ class PosLogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        $postagem = Postagem::find($id);
+        $postagem->delete();
+        return redirect('poslog');
+
     }
+
+    public function exibir($id){
+    }
+
 }
