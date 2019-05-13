@@ -12,19 +12,19 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " href='about'><i class="fas fa-shopping-basket"></i>Loja</a>
+          <a class="nav-link " ><i class="fas fa-shopping-basket"></i>Loja</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link " href='contato'><i class="fas fa-phone-square"></i> Contato </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link " href='about'><i class="far fa-lightbulb"></i> Sobre </a>
         </li>
 
-        <li>
-          <a class="nav-item" href="{{ url('/logout') }}"  onclick="event.preventDefault();
+        <li  class="nav-item">
+          <a href="{{ url('/logout') }}"  onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">
               <i class="fas fa-sign-out-alt"></i>Sair
           </a>
