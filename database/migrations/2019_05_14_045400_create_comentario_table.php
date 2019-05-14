@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateComentarioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('comentario', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
-            $table->string('name');
-            $table->string('email')->nunable();
-            $table->timestamp('email_verified_at')->nunable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->longText('texto_comentario');
+            $table->string('autor');
+            $table->date('data');
+            $table->dateTime('hora');
+            $table->integer('posta');
+            $table->foreign('posta')->references('id')->on('postagem');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('comentario');
     }
 }
