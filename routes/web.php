@@ -13,6 +13,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('about2', function () {
+    return view('about2');
+});
 
 Route::get('/poslog', 'PosLogController@index')->name('poslog');
 
