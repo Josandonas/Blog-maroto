@@ -83,7 +83,8 @@
                   </a>
                 </li>
               </ul>
-              <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+            </div>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
             </div>
           </div>
         </div>
