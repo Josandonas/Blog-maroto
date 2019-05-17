@@ -16,7 +16,7 @@
             <a class="nav-link " href="{{ route('register') }}"><i class="fas fa-clipboard-list"></i>Registre-se</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="about.html"><i class="far fa-lightbulb"></i>Sobre</a>
+            <a class="nav-link " href='about2'><i class="far fa-lightbulb"></i>Sobre</a>
           </li>
         </ul>
   </nav>

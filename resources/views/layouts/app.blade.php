@@ -46,7 +46,33 @@
         @yield('content')
     </main>
 
-
      </body>
 
+  <!-- Modal -->
+    <form>
+        <div class="modal fade" id="ModalLongoExemplo" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="TituloModalLongoExemplo">Nova Postagem <i class="fas fa-align-justify"></i></h5>
+                        <button type="button" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true"><i class="fas fa-times"></i></span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Título</label>
+                            <input class="form-control" type="text" placeholder="Digite um Titulo">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Conteúdo</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Digite algo"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Publicar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
  </html>
