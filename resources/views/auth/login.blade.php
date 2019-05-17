@@ -2,20 +2,15 @@
 
 @section('content')
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-        <a class="navbar-brand justify-content-between" ></a>
-      <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
-
-        <li class="nav-item">
-            <a class="nav-link " href='/'><i class="fas fa-home"></i>Home</a>
+    <a class="navbar-brand justify-content-between"  href='/' ><i class="fas fa-arrow-left"></i>Voltar</a>
+    <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
+    <li class="nav-item">
+        <a class="nav-link-active " ><i class="fas fa-sign-in-alt"></i>Login</a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link-active " ><i class="fas fa-sign-in-alt"></i>Login</a>
-          </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href='about2'><i class="far fa-lightbulb"></i> Sobre </a>
-        </li>
+    <li class="nav-item">
+        <a class="nav-link " href='about2'><i class="far fa-lightbulb"></i> Sobre </a>
+    </li>
 </nav>
 <br>
 <header class="masthead" style="background-image: url( {{ asset('img/login.jpg') }})">
