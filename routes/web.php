@@ -10,12 +10,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostagensController@inicio');
+
 Route::get('about2', function () {
     return view('about2');
 });
+Route::post('send-mail','MailController@sendMail')->name('mail');
 
 Route::get('/poslog', 'PosLogController@index')->name('poslog');
 
@@ -25,7 +25,6 @@ Route::get('/about', 'AboutController@index')->name('about');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::match(['get', 'post'], '/botman', 'BotManController@handle');
-Route::get('/botman/tinker', 'BotManController@tinker');
+Route::post('/publicar', 'PostagensController@store')->name('publicar');
 
 Auth::routes();
