@@ -18,6 +18,10 @@
           <li class="nav-item">
             <a class="nav-link " href='about2'><i class="far fa-lightbulb"></i>Sobre</a>
           </li>
+
+          {{-- <li class="nav-item">
+            <a class="nav-link " href='test'>teste</a>
+          </li> --}}
         </ul>
   </nav>
 
@@ -36,6 +40,23 @@
   </header>
 
   <!-- Main Content -->
+
+
+  <br>
+  @foreach( $postagens as $posts )
+      <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"> {{ $posts->nomePost }} </h5>
+                <p class="card-text">{{ $posts->texto }}</p>
+                <a href="#" class="btn btn-primary">Visitar</a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+  @endforeach
 
   <!-- Footer -->
   <footer>

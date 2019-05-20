@@ -82,7 +82,21 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">Publicar<i class="fas fa-pencil-alt"></i></button>
 </center>
 
+<br>
+@foreach( $postagens as $posts )
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"> {{ $posts->nomePost }} </h5>
+              <p class="card-text">{{ $posts->texto }}</p>
+              <a href="#" class="btn btn-primary">Visitar</a>
+            </div>
+          </div>
+        </div>
+    </div>
 
+@endforeach
 
   <!-- Main Content -->
   {{-- <div class="container">
