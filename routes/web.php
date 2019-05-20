@@ -25,4 +25,7 @@ Route::get('/about', 'AboutController@index')->name('about');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+Route::get('/botman/tinker', 'BotManController@tinker');
+
 Auth::routes();
