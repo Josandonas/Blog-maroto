@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Postagens;
-class PosLogController extends Controller{
+use Auth;
+use Illuminate\Http\Request;
+class PostagensController extends Controller{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $postagens=Postagens::all();
-        return view('poslog', compact('postagens'));
+        //
     }
 
     /**
@@ -21,7 +21,6 @@ class PosLogController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        //
     }
 
     /**
@@ -31,63 +30,58 @@ class PosLogController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-
+        $postagem= new Postagens();
+        $postagem->nomePost=$request->input('titulo'); /* input tem que ser equivalente ao name do campo do form*/
+        $postagem->texto=$request->input('texto');
+        $postagem->usuario=Auth::id();
+        $postagem->save();
+        return redirect('/poslog');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Postagens  $postagens
      * @return \Illuminate\Http\Response
      */
-    public function show($id){
+    public function show(Postagens $postagens){
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Postagens  $postagens
      * @return \Illuminate\Http\Response
      */
-    public function edit($id){
-        $postagem=Postagem::find($id);
-        return view('alterarpost',compact('postagem'));
+    public function edit(Postagens $postagens){
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Postagens  $postagens
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id){
-        $postagem = Postagem::find($id);
-        $postagem->id=$request->input('id');
-        $postagem->titulo=$request->input('titulo');
-        $postagem->descricao=$request->input('descricao');
-        $postagem->data=$request->input('data');
-        $postagem->hora=$request->input('hora');
-        $postagem->autor=$request->input('autor');
-        $postagem->save();
-        return redirect('poslog');
-
+    public function update(Request $request, Postagens $postagens){
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Postagens  $postagens
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id){
-        $postagem = Postagem::find($id);
-        $postagem->delete();
-        return redirect('poslog');
-
+    public function destroy(Postagens $postagens){
+        //
     }
 
-    public function exibir($id){
-    }
+    public function inicio(){
+        $postagens=Postagens::all();
+        return view('welcome', compact('postagens'));
 
+    }
 }
