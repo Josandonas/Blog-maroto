@@ -37,23 +37,25 @@
 
   <!-- Main Content -->
 
-
-  <br>
-  @foreach( $postagens as $posts )
-      <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"> {{ $posts->nomePost }} </h5>
-                <p class="card-text">{{ $posts->texto }}</p>
-                <a href="#" class="btn btn-primary">Visitar</a>
-              </div>
-            </div>
-          </div>
+ @foreach( $postagens as $posts )
+<div class="container-fluid">
+  <div class="card border-primary text-white bg-dark mb-3 " class="mx-auto">
+    <!-- <img class="card-img-top" src="#" alt="#"> -->
+    <div class="card-body">
+     <center><h2 class="card-title"> {{ $posts->nomePost }} </h2></center>
+      <p class="card-text">{{ $posts->texto }}</p>
+      <footer class="blockquote-footer">
+        <small>
+          Autor<cite title="Título da fonte">{{$posts->usuario}}</cite>
+        </small>
+      </footer>
+      <div class="text-center">
+        <a href="#" class="btn btn-primary">Comentar<i class="far fa-comment-alt"></i></a>
       </div>
-
-  @endforeach
-
+    </div>
+  </div>
+</div>
+@endforeach
   <!-- Footer -->
   <footer>
         <div class="container">
