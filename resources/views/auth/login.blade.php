@@ -36,9 +36,9 @@
                                         </span>
                                     @endif
                                 </div>
-
+                            </div>
                             <div class="form-group row">
-                                <label for="password" class="col-md-6 col-form-label text-md-right">Senha:</label>
+                                <label for="password"  class="col-md-4 col-form-label text-md-right">Senha:</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-md-12 offset-md-9">
+                                <div class="col-md-12 offset-md-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -70,6 +70,7 @@
                                     @endif
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
