@@ -49,8 +49,11 @@
                 @yield('content')
         </main>
     </div>
+ @guest
 
+ @else
 </body>
+
   <!-- Modal -->
     <form action="{{ route( "publicar") }}" method="POST">
         @csrf
@@ -70,6 +73,10 @@
                             <label for="exampleFormControlTextarea1">Conteúdo</label>
                             <textarea class="form-control" name="texto" id="exampleFormControlTextarea1" rows="3" placeholder="Digite algo"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Autor</label>
+                            <textarea class="form-control" name="nusuario" id="exampleFormControlTextarea1" rows="3" readonly="readonly">{{ Auth::user()->name }}</textarea>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -79,6 +86,7 @@
             </div>
         </div>
     </form>
+    @endguest
 </html>
 <!-- 
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">

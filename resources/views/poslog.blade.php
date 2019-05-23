@@ -92,7 +92,7 @@
       <p class="card-text">{{ $posts->texto }}</p>
       <footer class="blockquote-footer">
         <small>
-          Autor<cite title="Título da fonte">{{$posts->usuario}}</cite>
+          <cite title="Título da fonte">{{$posts->nusuario}}</cite>
         </small>
       </footer>
       <div class="text-center">

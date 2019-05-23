@@ -11,6 +11,9 @@
     <li class="nav-item">
         <a class="nav-link " href='about2'><i class="far fa-lightbulb"></i> Sobre </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link " href='register'><i class="fas fa-clipboard-list"></i> Registre-se </a>
+    </li>
 </nav>
 <br>
 <header class="masthead" style="background-image: url( {{ asset('img/login.jpg') }})">
