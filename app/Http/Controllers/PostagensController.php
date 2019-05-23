@@ -33,6 +33,7 @@ class PostagensController extends Controller{
         $postagem= new Postagens();
         $postagem->nomePost=$request->input('titulo'); /* input tem que ser equivalente ao name do campo do form*/
         $postagem->texto=$request->input('texto');
+        $postagem->nusuario=$request->input('nusuario');
         $postagem->usuario=Auth::id();
         $postagem->save();
         return redirect('/poslog');
