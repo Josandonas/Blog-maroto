@@ -18,6 +18,7 @@ class CreatePostagensTable extends Migration
             $table->string('nomePost');
             $table->longText('texto');
             $table->string('nusuario');
+            $table->string('arquivo');
             $table->integer('usuario');
             $table->foreign('usuario')->references('id')->on('users');
             $table->timestamps();
