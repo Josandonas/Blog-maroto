@@ -32,6 +32,8 @@ Route::get('/about', 'AboutController@index')->name('about');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/chat', 'ChatsController@index')->name('chat');
+
 Route::post('/publicar', 'PostagensController@store')->name('publicar');
 
 Route::post('/comentar', 'ComentariosController@store')->name('comentar');

@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 use App\Postagens;
 use App\Comentarios;
 use Auth;
-use Illuminate\Support\Facades\Storage;
-class AboutController extends Controller{
+class GaleriaController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('about');
+        $postagem=Postagens::all();
+        return view('galeria',compact('postagem'));
     }
 
     /**
@@ -22,7 +23,6 @@ class AboutController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
         //

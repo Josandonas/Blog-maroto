@@ -13,6 +13,10 @@
     </form>
 
     <!-- Scripts -->
+
+    <script type="text/javascript" src="{{ asset('js/creative.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/creative.min.js') }}"></script>
+    
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/clean-blog.min.js') }}"></script>

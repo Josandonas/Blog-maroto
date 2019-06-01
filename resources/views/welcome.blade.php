@@ -37,36 +37,35 @@
 
   <!-- Main Content -->
 
-<div class="container-fluid">
-    <div class="card border-primary text-white bg-dark mb-3 " class="mx-auto">
-      @foreach( $postagens as $posts )
-          <img class="card-img-top" src="/storage/{{$posts->arquivo}}">
-          <div class="card-body">
-          <center><h2 class="card-title"> {{ $posts->nomePost }} </h2></center>
-            <p class="card-text">{{ $posts->texto }}</p>
-            <footer class="blockquote-footer">
-              <small>
-                <cite title="Título da fonte">{{$posts->nusuario}}</cite>
-              </small>
-            </footer>
-          </div>
-      @endforeach
-      @foreach( $comentarios as $coment )
-          <div>
-            <center><h4>Comentários <i class="fas fa-comments"></i></h4></center>
-          </div>
-          <img class="card-img-top" src="/storage/{{$coment->arquivo}}">
-          <div class="card-body">
-            <p class="card-text">{{ $coment->texto_comentario}}</p>
-            <footer class="blockquote-footer">
-              <small>
-                <cite title="Título da fonte">{{$coment->autor}}</cite>
-              </small>
-            </footer>
-          </div>      
-      @endforeach
+@foreach( $posts as $post )
+  <div class="container-fluid">
+    <div class="card text-white bg-dark mb-3 " class="mx-auto">
+              <img class="card-img-top" src="/storage/{{$post['post']->arquivo}}">
+              <div class="card-body">
+                <center><h2 class="card-title"> {{ $post['post']->nomePost }} </h2></center>
+                  <p class="card-text">{{ $post['post']->texto }}</p>                
+                    <small>
+                      <cite title="Título da fonte">{{$post['post']->nusuario}}</cite>
+                    </small>
+              </div>
+    @foreach( $post['comentarios'] as $coment )
+
+          <div class="card text-white bg-dark mb-3 " class="mx-auto">
+            <div class="card-body">
+              <center><h5>Comentário<i class="far fa-comment-alt"></i></h5></center>
+                    <img class="card-img-top" src="/storage/{{$coment->arqui}}">
+                    <div class="card-body">
+                      <p class="card-text">{{ $coment->texto_comentario}}</p>
+                        <small>
+                          <cite title="Título da fonte">{{$coment->autor}}</cite>
+                        </small>
+                    </div>
+              </div>
+            </div>
+    @endforeach
     </div>
-</div>
+  </div>
+@endforeach
   <!-- Footer -->
   <footer>
         <div class="container">

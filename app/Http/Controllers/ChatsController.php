@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use App\Postagens;
-use App\Comentarios;
 use Auth;
-use Illuminate\Support\Facades\Storage;
-class AboutController extends Controller{
+class ChatsController extends Controller{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('about');
+        $usuario=Auth::user()->name;
+        // $email=Auth::email()->email;
+        return view('chat', compact('usuario'));
     }
 
     /**
@@ -22,7 +22,6 @@ class AboutController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
         //

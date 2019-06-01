@@ -12,10 +12,6 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " ><i class="fas fa-shopping-basket"></i>Loja</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link " href='contato'><i class="fas fa-phone-square"></i> Contato </a>
         </li>
 

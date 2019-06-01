@@ -21,7 +21,7 @@ class ComentariosController extends Controller{
         $comentario= new Comentarios(); /* input tem que ser equivalente ao name do campo do form*/
         $comentario->texto_comentario=$request->input('texto');
         $comentario->autor=$request->input('nome');
-        $comentario->arquivo=$path;
+        $comentario->arqui=$path;
         $comentario->postagem=$request->input('idpost');
         $comentario->save();
         return redirect('/poslog');
@@ -29,7 +29,7 @@ class ComentariosController extends Controller{
     public function destroy($id){
         $comentario=Comentarios::find($id);
         if (isset($comentario)) {
-            $arqui= $comentario->arquivo;
+            $arqui= $comentario->arqui;
             Storage::disk('public')->delete($arqui);
             $comentario->delete();
         }
