@@ -11,10 +11,27 @@ class NovoAcesso extends Mailable{
     
     use Queueable, SerializesModels;
 
-    public function __construct(){
-    }
-    public function build(){
+    public $remetente;
+    public $nome;
+    public $destinatario;
+    public $data;
 
-        return $this->view('view.name');
+    public function __construct($remetente, $nome, $assunto, $destinatario, $data){
+        $this->remetente = $remetente;
+        $this->nome = $nome;
+        $this->assunto = $assunto;
+        $this->destinatario = $destinatario;
+        $this->data = $data;
+    }
+
+    public function build(){
+ 
+        $subject = 'E-mail de Usuário';
+        $name = 'Juelito';
+        
+        return $this->view('emails.test',['texto'=>$this->data])
+                    ->from($this->remetente, $this->nome)
+                    ->replyTo($this->destinatario, $name)
+                    ->subject($this->assunto);  
     }
 }

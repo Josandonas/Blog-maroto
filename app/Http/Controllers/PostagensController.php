@@ -7,6 +7,7 @@ use Auth;
 use App\Comentarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class PostagensController extends Controller{
     public function index(){
@@ -41,16 +42,6 @@ class PostagensController extends Controller{
     }
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Postagens  $postagens
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Postagens $postagens){
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
      *
      * @param  \App\Postagens  $postagens
      * @return \Illuminate\Http\Response

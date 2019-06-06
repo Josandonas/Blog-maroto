@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Postagens;
@@ -11,25 +10,12 @@ use Auth;
 
 
 class PosLogController extends Controller{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(){
         $post_comentario = array();
-
-        $postagens=Postagens::all();
-        foreach ($postagens as $key => $post) {
-              $comentarios=DB::table('comentarios')
-                ->join('postagens','comentarios.postagem','=','postagens.id')
-                ->where('postagens.id','=',$post->id)
-                ->get();
-                array_push($post_comentario, array('post'=>$post,'comentarios'=>$comentarios));
-        }
-       // $comentarios=Comentarios::all();        ->where('comentarios.postagem','=','postagens.id')
-// dd($post_comentario);
-        return view('poslog', array("posts"=>$post_comentario));
+        
+        $posts=Postagens::paginate(2); 
+        return view('poslog', compact('posts'));
     }
     public function inicio(){
        $post_comentario = array();
@@ -42,8 +28,7 @@ class PosLogController extends Controller{
                 ->get();
                 array_push($post_comentario, array('post'=>$post,'comentarios'=>$comentarios));
         }
-       // $comentarios=Comentarios::all();        ->where('comentarios.postagem','=','postagens.id')
-// dd($post_comentario);
+        
         return view('welcome', array("posts"=>$post_comentario));
     }
     /**

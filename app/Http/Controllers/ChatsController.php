@@ -1,85 +1,72 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+
 use Illuminate\Http\Request;
-use App\Postagens;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NovoAcesso;
+use Illuminate\Support\Facades\DB;
 use Auth;
+use App\User;
+use App\Postagens;
 class ChatsController extends Controller{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function enviarEmail(Request $request){
+        $destinatario = $request->input('destinatario');
+        $assunto = $request->input('assunto');
+        $mensagem = $request->input('mensagem');
+        $remetente = Auth::user()->email;
+        $nome = Auth::user()->name;
+
+        //Mail::to($destinatario)->send(new TestEmail($remetente, $nome, $assunto, $destinatario, $mensagem));
+        //return back()->with('sucesso', 'Mensagem enviada com sucesso!');       
+
+        if(User::where('users.name', '=', $destinatario)->exists()){
+            $destino = DB::table('users')
+            ->select('users.email')
+            ->where('users.name', $destinatario)
+            ->get();
+            Mail::to($destino)->send(new NovoAcesso($remetente, $nome, $assunto, $destino, $mensagem));
+            return back()->with('sucesso', 'Mensagem enviada com sucesso!');
+        }else{
+            return back()->with('erro', 'Usuário não existe!');
+        }
+    }
+
     public function index(){
-        $usuario=Auth::user()->name;
-        // $email=Auth::email()->email;
-        return view('chat', compact('usuario'));
-    }
+        $post_comentario = array();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $postagens=Postagens::all();
+        foreach ($postagens as $key => $post) {
+              $comentarios=DB::table('comentarios')
+                ->join('postagens','comentarios.postagem','=','postagens.id')
+                ->where('postagens.id','=',$post->id)
+                ->get();
+                array_push($post_comentario, array('post'=>$post,'comentarios'=>$comentarios));
+        }
+       // $comentarios=Comentarios::all();        ->where('comentarios.postagem','=','postagens.id')
+// dd($post_comentario);
+        return view('chat', array("posts"=>$post_comentario));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function mensagem(){
+        return view('chat');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    // public function create(){
+    //     //
+    // }
+    // public function store(Request $request){
+    //     //
+    // }
+    // public function show($id){
+    //     //
+    // }
+    // public function edit($id){
+    //     //
+    // }
+    // public function update(Request $request, $id){
+    //     //
+    // }
+    // public function destroy($id){
+    //     //
+    // }
 }

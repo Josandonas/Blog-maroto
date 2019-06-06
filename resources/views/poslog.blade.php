@@ -87,90 +87,45 @@
 
 
 @foreach( $posts as $post )
-<div class="container">
-  <div class="card text-white bg-dark mb-3 " class="mx-auto">
-          <div class="card-header bg-dark">
-            <div class="d-flex justify-content-end">
-                <a href="/apagarpostagem/{{$post['post']->id}}" class="btn btn-sm btn-outline-danger">Apagar<i class="fas fa-trash-alt"></i></a>
+  <div class="container">
+    <div class="card text-white bg-dark mb-3 " class="mx-auto">
+            <div class="card-header bg-dark">
+              <div class="d-flex justify-content-end">
+                  <a href="/apagarpostagem/{{$post->id}}" class="btn btn-sm btn-outline-danger">Apagar<i class="fas fa-trash-alt"></i></a>
+              </div>
             </div>
-          </div>
-            <img class="card-img-top" src="/storage/{{$post['post']->arquivo}}">
-            <div class="card-body">
-              <center><h2 class="card-title"> {{ $post['post']->nomePost }} </h2></center>
-                <p class="card-text">{{ $post['post']->texto }}</p>                
-                  <small>
-                    <cite title="Título da fonte">-{{$post['post']->nusuario}}</cite>
-                  </small>
-            </div>
-          <div class="text-center">
-                  <form action="/comentar" method="POST"  enctype="multipart/form-data">
-                  @csrf
-                    <div class="container-fluid">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="coment">Comentários<i class="far fa-comment-alt"></i></h5>
-                      </div>
-                                            <div class="card-body">
-                          <div class="form-group">
-                              <label for="exampleFormControlTextarea1">Conteúdo do Comentário</label>
-                              <textarea class="form-control" name="texto" id="exampleFormControlTextarea1" rows="3" placeholder="Digite algo"></textarea>
-                          </div>
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="arquivo" name="arquivo">
-                            <label class="custom-file-label" for="arquivo">Escolha um arquivo</label>
-                          </div>
-                          <input type="hidden" name="nome" value="{{ Auth::user()->name }}">
-                          <input type="hidden" name="idpost" value="{{ $post['post']->id }}">
-                              <br>
-                              <br>                        
-                            <div class="d-flex justify-content-end">
-                              <br>
-                              <br>
-                              <button type="submit" class="btn btn-primary">Comentar</button>
-                            </div>
-                      </div>
-                    </div>
-                  </form>
-            </div>
-  @foreach( $post['comentarios'] as $coment )
-        <div class="card text-white bg-dark mb-3 " class="mx-auto">
-          <div class="card-body">
-                  <img class="card-img-top" src="/storage/{{$coment->arqui}}">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                        <a href="/apagarcomentario/{{$coment->id}}" class="btn btn-sm btn-outline-danger">Apagar Comentário<i class="fas fa-trash-alt"></i></a>
-                    </div>
-                    <p class="card-text">{{ $coment->texto_comentario}}</p>
-                      <small>
-                        <cite title="Título da fonte">{{$coment->autor}}</cite>
-                      </small>
-                  </div>
-            </div>
-          </div>
+              <img class="card-img-top" src="/storage/{{$post->arquivo}}">
+              <div class="card-body">
+                <center><h2 class="card-title"> {{ $post->nomePost }} </h2></center>
+                  <p class="card-text">{{ $post->texto }}</p>                
+                    <small>
+                      <cite title="Título da fonte">{{$post->nusuario}}</cite>
+                    </small>
+              <div>
+                <center> <a href="/postaqui/{{$post->id}}" class="btn btn-success btn-lg btn-block">Ver Publicação</a></center>
+              </div>
+              </div>
+    </div>
+  </div>                                       
 @endforeach
-  </div>
-</div>
-@endforeach
-
+<div> {!! $posts->render() !!}
   <br>
   <!-- O lugar onde as imgens aparecem tal que são configuradas por aqui -->
 
 
-      <div class="album py-5 bg-dark mb-3">
-          <center><div class="card-header text-white bg-dark mb-3"><i class="fas fa-images"></i> Galeria<i class="fas fa-images"></i></div></center>
-        <div class="container">
-          <div class="card text-white bg-dark mb-3 ">
-              <div class="row">
-                   @foreach($posts as $post )
-                    <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6">            
-                      <img class="card-img-top" src="/storage/{{$post['post']->arquivo}}" class="img-responsive">
-                    <div class="card-body">
-                    </div>
-                    </div>
-                    @endforeach
-              </div>
+<div class="container" class="album py-5 bg-dark mb-3">
+  <div class="card text-white bg-dark mb-3 ">
+      <center><div class="card-header text-white bg-dark mb-3"><i class="fas fa-images"></i> Galeria<i class="fas fa-images"></i></div></center>
+      <div class="row">
+            @foreach($posts as $post )
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6">            
+                <a href="/postaqui/{{$post->id}}"><img class="card-img-top" src="/storage/{{$post->arquivo}}" class="img-responsive"></a>
+
             </div>
-        </div>
+            @endforeach
       </div>
+    </div>
+</div>
 <br>
     <!-- Footer -->
     <footer>

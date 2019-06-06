@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// função show do laravel para ver somente uma postagem
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,7 +23,7 @@ Route::get('about2', function () {
     return view('about2');
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 Route::get('/poslog', 'PosLogController@index')->name('poslog');
 
@@ -42,9 +43,13 @@ Route::get('/apagarpostagem/{id}','PostagensController@destroy');
 
 Route::get('/apagarcomentario/{id}','ComentariosController@destroy');
 
-Route::get('/botman/tinker', 'BotManController@tinker');
+Route::get('/postaqui/{id}','PostaAquiController@show');
 
-Route::post('send-mail','MailController@sendMail')->name('mail');
+Route::get('/postaaqui','PostaAquiController@index')->name('postaaqui');
+
+Route::post('/mensagemEmail', 'ChatsController@enviarEmail');
+
+Route::get('/mensagem', 'ChatsController@mensagem');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 

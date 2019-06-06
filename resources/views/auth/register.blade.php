@@ -5,6 +5,9 @@
         <a class="navbar-brand justify-content-between"  href='/' ><i class="fas fa-arrow-left"></i>Voltar</a>
         <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
         <li class="nav-item">
+            <a class="nav-link " href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>Login</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link-active " ><i class="fas fa-clipboard-list"></i>Registre-se</a>
             </li>
 
