@@ -17,7 +17,12 @@ class ComentariosController extends Controller{
     }
 
     public function store(Request $request){
-        $path=$request->file('arquivo')->store('imagens','public');
+        if($request->file('arquivo')==null){
+            $path = "";
+        }else{
+            $path=$request->file('arquivo')->store('imagens','public');
+        }
+        
         $comentario= new Comentarios(); /* input tem que ser equivalente ao name do campo do form*/
         $comentario->texto_comentario=$request->input('texto');
         $comentario->autor=$request->input('nome');

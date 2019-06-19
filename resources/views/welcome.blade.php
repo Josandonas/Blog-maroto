@@ -2,23 +2,25 @@
 @section('content')
 
 <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-
-      <a class="navbar-brand justify-content-between" >BNHA</a>
-
-
-        <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
-          <li class="nav-item">
-            <a class="nav-link " href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{ route('register') }}"><i class="fas fa-clipboard-list"></i>Registre-se</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href='about2'><i class="far fa-lightbulb"></i>Sobre</a>
-          </li>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">BNHA</a>
   </nav>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link " href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>Login</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " href="{{ route('register') }}"><i class="fas fa-clipboard-list"></i>Registre-se</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="loja2"> <i class="fas fa-store"></i>Loja </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href='about2'><i class="far fa-lightbulb"></i>Sobre</a>
+      </li>
+    </ul>
+</nav>
 
   <header class="masthead" style="background-image: url( {{ asset('img/home-bg.png') }})">
     <div class="overlay"></div>
@@ -39,7 +41,10 @@
 @foreach( $posts as $post )
   <div class="container-fluid">
     <div class="card text-white bg-dark mb-3 " class="mx-auto">
-              <img class="card-img-top" src="/storage/{{$post['post']->arquivo}}">
+          @if($post['post']->arquivo!="")
+            <img class="card-img-top" src="/storage/{{$post['post']->arquivo}}">
+          @endif
+              
               <div class="card-body">
                 <center><h2 class="card-title"> {{ $post['post']->nomePost }} </h2></center>
                   <p class="card-text">{{ $post['post']->texto }}</p>                
@@ -52,7 +57,10 @@
           <div class="card text-white bg-dark mb-3 " class="mx-auto">
             <div class="card-body">
               <center><h5>Comentário<i class="far fa-comment-alt"></i></h5></center>
+                  @if($coment->arqui!="")
                     <img class="card-img-top" src="/storage/{{$coment->arqui}}">
+                  @endif
+                    
                     <div class="card-body">
                       <p class="card-text">{{ $coment->texto_comentario}}</p>
                         <small>

@@ -4,15 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComentariosTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
+class CreateComentariosTable extends Migration{
+    
+    public function up(){
         Schema::create('comentarios', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->longText('texto_comentario');
@@ -24,13 +18,7 @@ class CreateComentariosTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
+    public function down(){
         Schema::dropIfExists('comentarios');
     }
 }

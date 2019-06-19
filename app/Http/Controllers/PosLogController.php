@@ -12,10 +12,11 @@ use Auth;
 class PosLogController extends Controller{
 
     public function index(){
-        $post_comentario = array();
         
         $posts=Postagens::paginate(2); 
-        return view('poslog', compact('posts'));
+        $imagem=Postagens::all();
+
+        return view('poslog', compact('posts','imagem'));
     }
     public function inicio(){
        $post_comentario = array();

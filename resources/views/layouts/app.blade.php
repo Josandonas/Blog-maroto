@@ -13,23 +13,22 @@
     </form>
 
     <!-- Scripts -->
-
-    <script type="text/javascript" src="{{ asset('js/creative.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/creative.min.js') }}"></script>
+    <script language="Javascript" type="text/javascript">
+        function alerta() {
+            alert("Atenção, é necessário realizar o cadastro antes.")
+        }
+    </script>
 
     <script>
-            var botmanWidget = {
-                introMessage: 'Olá, você está com algum problema?', 
-                title: 'All Might chatbot', 
-                mainColor: '#FFD700',
-                aboutText: '',
-                bubbleAvatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSraGPpR4vk6WWEluek1zPNjs2oUMxKNy6OcrOXKeBAMVwgVs_xZg',
-            }; 
-        </script>
-        
-        <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
-        
-
+    var botmanWidget = {
+        introMessage: 'Olá, você está com algum problema?', 
+        title: 'All Might chatbot', 
+        mainColor: '#FFD700',
+        aboutText: '',
+        bubbleAvatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSraGPpR4vk6WWEluek1zPNjs2oUMxKNy6OcrOXKeBAMVwgVs_xZg',
+    }; 
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/clean-blog.min.js') }}"></script>
@@ -59,12 +58,9 @@
 </head>
 
 <body>
-    
-    <div id="app">
-         <main class="py-4">
                 @yield('content')
-        </main>
-    </div>
+    
+    
  @guest
 
  @else
@@ -106,6 +102,6 @@
             </div>
         </div>
     </form>
-
     @endguest
+
 </html>

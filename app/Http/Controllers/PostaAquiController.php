@@ -8,19 +8,13 @@ use Auth;
 use App\Comentarios;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-class PostaAquiController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+class PostaAquiController extends Controller{
+
     public function index(){
         return view('postaaqui');
     }
     public function show($id){
         $postagem=Postagens::find($id);
-
         $comentarios=DB::table('comentarios')
             ->join('postagens','comentarios.postagem','=','postagens.id')
             ->where('postagens.id','=',$id)

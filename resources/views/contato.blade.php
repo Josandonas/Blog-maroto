@@ -1,31 +1,27 @@
 @extends('layouts.app')
 @section('content')
  <!-- Navigation -->
- <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" > <i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a>
+  </nav>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link " href='poslog'><i class="fas fa-home"></i>Home</a>
+    </li>
 
-    <a class="navbar-brand justify-content-between" > <i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a>
+    <li class="nav-item active">
+      <a class="nav-link "><i class="fas fa-phone-square"></i> Contato </a>
+    </li>
 
-      <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
+    <li class="nav-item">
+      <a class="nav-link " href='about'><i class="far fa-lightbulb"></i> Sobre </a>
+    </li>
 
-        <li class="nav-item">
-            <a class="nav-link " href='poslog'><i class="fas fa-home"></i>Home</a>
-        </li>
-
-        <li class="nav-item active">
-          <a class="nav-link "  href='contato'><i class="fas fa-phone-square"></i> Contato </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href='about'><i class="far fa-lightbulb"></i> Sobre </a>
-        </li>
-
-        <li class="nav-item">
-          <a  href="{{ url('/logout') }}"  onclick="event.preventDefault();
-                       document.getElementById('logout-form').submit();">
-              <i class="fas fa-sign-out-alt"></i>Sair
-          </a>
-        </li>
-
+    <li class="nav-item">
+      <a href="{{ url('/logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><button type="button" class="btn btn-danger ">Sair <i class="fas fa-sign-out-alt"></i></button></a>
+    </li>
+  </ul>
 </nav>
 
 

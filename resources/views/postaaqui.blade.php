@@ -1,38 +1,32 @@
 @extends('layouts.app')
   @section('content')
   <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light">
+     <a class="navbar-brand justify-content-between" > <i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a>
+  </nav>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link " href='/poslog'><i class="fas fa-home"></i>Home</a>
+    </li>
 
-        <a class="navbar-brand justify-content-between" > <i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a>
+    <li class="nav-item">
+      <a class="nav-link " href='contato'><i class="fas fa-phone-square"></i> Contato </a>
+    </li>
 
-          <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
-            
-            <li class="nav-item">
-                <a class="nav-link " href='/poslog'><i class="fas fa-home"></i>Home</a>
-            </li>
+    <li class="nav-item">
+      <a class="nav-link "  href='chat'><i class="fas fa-comments"></i> Chat</a>
+    </li>
 
-            <li class="nav-item">
-              <a class="nav-link " href='contato'><i class="fas fa-phone-square"></i> Contato </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link "  href='chat'><i class="fas fa-comments"></i> Chat</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href='about'><i class="far fa-lightbulb"></i> Sobre </a>
-            </li>
-
-            <li class="nav-item">
-              <a  href="{{ url('/logout') }}"  onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-                  <i class="fas fa-sign-out-alt"></i>Sair
-              </a>
-          </li>
-
+    <li class="nav-item">
+      <a class="nav-link " href='about'><i class="far fa-lightbulb"></i> Sobre </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ url('/logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><button type="button" class="btn btn-danger ">Sair <i class="fas fa-sign-out-alt"></i></button></a>
+    </li>
+  </ul>
     </nav>
 <!-- Fim Navigation -->
-    <p>
 <!-- anúncios -->
 
     <div class="bd-example">
@@ -93,7 +87,11 @@
                 <a href="/apagarpostagem/{{$postagem->id}}" class="btn btn-sm btn-outline-danger">Apagar<i class="fas fa-trash-alt"></i></a>
             </div>
           </div>
-            <img class="card-img-top" src="/storage/{{$postagem->arquivo}}">
+          @if($postagem->arquivo!="")
+            <div style="background-image: url( {{ asset('img/doll.jpg') }})">
+              <center><img   class="img-thumbnail" class="card-img-top" src="/storage/{{$postagem->arquivo}}" style="width: 700px;"></center> 
+            </div>
+          @endif
             <div class="card-body">
               <center><h2 class="card-title"> {{ $postagem->nomePost }} </h2></center>
                 <p class="card-text">{{ $postagem->texto }}</p>                
@@ -133,16 +131,18 @@
   @foreach( $comentarios as $coment )
         <div class="card text-white bg-dark mb-3 " class="mx-auto">
           <div class="card-body">
-                  <img class="card-img-top" src="/storage/{{$coment->arqui}}">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                        <a href="/apagarcomentario/{{$coment->id}}" class="btn btn-sm btn-outline-danger">Apagar Comentário<i class="fas fa-trash-alt"></i></a>
-                    </div>
-                    <p class="card-text">{{ $coment->texto_comentario}}</p>
-                      <small>
-                        <cite title="Título da fonte">{{$coment->autor}}</cite>
-                      </small>
-                  </div>
+            @if($coment->arqui!="")
+            <img class="card-img-top" src="/storage/{{$coment->arqui}}">
+            @endif
+            <div class="card-body">
+              <div class="d-flex justify-content-end">
+                  <a href="/apagarcomentario/{{$coment->id}}" class="btn btn-sm btn-outline-danger">Apagar Comentário<i class="fas fa-trash-alt"></i></a>
+              </div>
+              <p class="card-text">{{ $coment->texto_comentario}}</p>
+                <small>
+                  <cite title="Título da fonte">{{$coment->autor}}</cite>
+                </small>
+            </div>
             </div>
           </div>
 @endforeach

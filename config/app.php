@@ -124,6 +124,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        laravel\pagseguro\Platform\Laravel5\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -146,7 +147,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -174,7 +175,8 @@ return [
     */
 
     'aliases' => [
-
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PagSeguro' => laravel\pagseguro\Platform\Laravel5\PagSeguro::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

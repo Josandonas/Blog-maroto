@@ -16,8 +16,11 @@ class PostagensController extends Controller{
     public function create(){
     }
     public function store(Request $request){
-
-        $path=$request->file('arquivo')->store('imagens','public');
+        if($request->file('arquivo')==null){
+            $path = "";
+        }else{
+            $path=$request->file('arquivo')->store('imagens','public');
+        }
         $postagem= new Postagens();
         $postagem->nomePost=$request->input('titulo'); /* input tem que ser equivalente ao name do campo do form*/
         $postagem->texto=$request->input('texto');
@@ -40,32 +43,13 @@ class PostagensController extends Controller{
         return redirect('/poslog');
         
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Postagens  $postagens
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Postagens $postagens){
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Postagens  $postagens
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Postagens $postagens){
-        //
+   
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Postagens  $postagens
-     * @return \Illuminate\Http\Response
-     */
 
 }

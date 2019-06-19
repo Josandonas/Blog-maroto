@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-    <a class="navbar-brand justify-content-between"  href='\' ><i class="fas fa-arrow-left"></i>Voltar</a>
-    <ul class=" navbar-nav mr-right mt-2 mt-lg-0 ">
-    <li class="nav-item">
-        <a class="nav-link-active " ><i class="far fa-bell"></i>Redefinir Senha</a>
-    </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand"  href='\' ><i class="fas fa-arrow-left"></i>Voltar</a>
+    </nav>
+    <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link" ><i class="far fa-bell"></i>Redefinir Senha</a>
+        </li>
+    </ul>
 </nav>
 
 <header class="masthead" style="background-image: url( {{ asset('img/reset.jpg') }})">
